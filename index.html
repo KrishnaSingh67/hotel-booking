@@ -37,33 +37,44 @@
             <label>Max Price: $<span id="priceValue">200</span></label><br>
             <input type="range" id="priceRange" min="50" max="200" value="200" oninput="updatePrice()">
             <h4>Star Rating</h4>
-            <label><input type="checkbox" class="starFilter" value="3"> 3★</label><br>
-            <label><input type="checkbox" class="starFilter" value="4"> 4★</label><br>
-            <label><input type="checkbox" class="starFilter" value="5"> 5★</label><br>
+            <label><input type="checkbox" class="starFilter" value="3"> 3 ★★★</label><br>
+            <label><input type="checkbox" class="starFilter" value="4"> 4 ★★★★</label><br>
+            <label><input type="checkbox" class="starFilter" value="5"> 5 ★★★★★</label><br>
 
-            <button onclick="applyFilters()">Apply Filters</button>
+            <div class="basic">
+                <h5><input type="checkbox">Free Wifi</h5>
+                <h5><input type="checkbox">Parking</h5>
+                <h5><input type="checkbox">Swiming pool</h5>
+            </div>
+           
+        
+        <div class="advance">
+            <h5><input type="checkbox">Gym</h5>
+            <h5><input type="checkbox">Spa & Wellness</h5>
         </div>
+         <button onclick="applyFilters()">Apply Filters</button>
+    </div>
 
         <div class="hotels">
-            <div class="hotel-card"data-price="8" data-star="5">
+            <div class="hotel-card" data-price="8" data-star="5">
                 <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Hotel">
                 <div class="hotel-info">
                     <h3>The Azure Sands Resort</h3>
-                    <p>$7.99 / night  ⭐⭐⭐⭐</p>
-                    <button  onclick="bookHotel('The Azure Sands Resort')">Book Now</button>
+                    <p>$7.99 / night ⭐⭐⭐⭐</p>
+                    <button onclick="bookHotel('The Azure Sands Resort')">Book Now</button>
                 </div>
             </div>
 
-            <div class="hotel-card"data-price="20" data-star="3">
+            <div class="hotel-card" data-price="20" data-star="3">
                 <img src="asset/image2.png" alt="Hotel">
                 <div class="hotel-info">
                     <h3>The Eskeria Resort</h3>
-                    <p>$20.5 / night  ⭐⭐⭐</p>
+                    <p>$20.5 / night ⭐⭐⭐</p>
                     <button onclick="bookHotel('The Eskeria Resort')">Book Now</button>
                 </div>
             </div>
 
-            <div class="hotel-card"  data-price="40.5" data-star="3">
+            <div class="hotel-card" data-price="40.5" data-star="3">
                 <img src="asset/hotel 4.png" alt="Hotel">
                 <div class="hotel-info">
                     <h3>Zenwa Hotel</h3>
@@ -72,10 +83,10 @@
                 </div>
             </div>
 
-            <div class="hotel-card"data-price="60" data-star="4">
+            <div class="hotel-card" data-price="60" data-star="4">
                 <img src="asset/hotel 3.png" alt="Hotel">
                 <div class="hotel-info">
-                    <h3>The Bellagio Hotel  ⭐⭐⭐⭐</h3>
+                    <h3>The Bellagio Hotel ⭐⭐⭐⭐</h3>
                     <p>$60 / night</p>
                     <button onclick="bookHotel('The Bellagio Hotel')">Book Now</button>
                 </div>
@@ -84,17 +95,17 @@
             <div class="hotel-card" data-price="73" data-star="4">
                 <img src="asset/hotel 5.png" alt="Hotel">
                 <div class="hotel-info">
-                    <h3>Lalit Hotel  </h3>
+                    <h3>Lalit Hotel </h3>
                     <p>$73 / night ⭐⭐⭐⭐</p>
                     <button onclick="bookHotel('Lalit Hotel')">Book Now</button>
                 </div>
             </div>
 
-            <div class="hotel-card"data-price="200" data-star="5">
+            <div class="hotel-card" data-price="200" data-star="5">
                 <img src="asset/hotel 6.png" alt="Hotel">
                 <div class="hotel-info">
                     <h3>Ananta Hotel</h3>
-                    <p>$200 / night  ⭐⭐⭐⭐⭐</p>
+                    <p>$200 / night ⭐⭐⭐⭐⭐</p>
                     <button onclick="bookHotel('Ananta Hotel')">Book Now</button>
                 </div>
             </div>
@@ -111,8 +122,9 @@
 
         <div class="map">
             <h3>World Map</h3>
-            <img src="https://tse1.mm.bing.net/th/id/OIP.03GCuY4ltJTJg5AHLf5MXwHaEm?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"  width="100%">
-          
+            <img src="https://tse1.mm.bing.net/th/id/OIP.03GCuY4ltJTJg5AHLf5MXwHaEm?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                width="100%">
+
         </div>
 
 
@@ -144,24 +156,28 @@
 
 
         function applyFilters() {
-      const maxPrice = parseInt(document.getElementById("priceRange").value);
-      const selectedStars = Array.from(document.querySelectorAll(".starFilter:checked"))
-                                .map(cb => parseInt(cb.value));
+            const maxPrice = parseInt(document.getElementById("priceRange").value);
+            const selectedStars = Array.from(document.querySelectorAll(".starFilter:checked"))
+                .map(cb => parseInt(cb.value));
 
-           document.querySelectorAll(".hotel-card").forEach(card => {
-        const price = parseInt(card.getAttribute("data-price"));
-        const star = parseInt(card.getAttribute("data-star"));
+            document.querySelectorAll(".hotel-card").forEach(card => {
+                const price = parseInt(card.getAttribute("data-price"));
+                const star = parseInt(card.getAttribute("data-star"));
 
-        let matchesPrice = price <= maxPrice;
-        let matchesStar = selectedStars.length === 0 || selectedStars.includes(star);
+                let matchesPrice = price <= maxPrice;
+                let matchesStar = selectedStars.length === 0 || selectedStars.includes(star);
 
-        if (matchesPrice && matchesStar) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
+                if (matchesPrice && matchesStar) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
-      });
-    }
+
+
+     
+
     </script>
 </body>
 

@@ -75,6 +75,19 @@ nav a {
     margin-right: 20px;
 }
 
+.filter button{
+    background-color: #008060;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: white;
+}
+.filter button:hover{
+    background: #044b3a;
+}
+
 .hotels {
     width: 55%;
     display: grid;
@@ -127,7 +140,9 @@ nav a {
     cursor: pointer;
     margin-top: 10px;
 }
-
+.hotel-info button:hover{
+     background: #044b3a;
+}
 .map {
     width: 20%;
     background: #fff;
