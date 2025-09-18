@@ -37,7 +37,6 @@ nav a {
 
 .search-box {
     background: rgb(255 255 255 / 69%);
-    ;
     display: flex;
     justify-content: center;
     padding: 47px;
@@ -75,7 +74,7 @@ nav a {
     margin-right: 20px;
 }
 
-.filter button{
+.filter button {
     background-color: #008060;
     border: none;
     border-radius: 8px;
@@ -84,7 +83,8 @@ nav a {
     font-weight: 600;
     color: white;
 }
-.filter button:hover{
+
+.filter button:hover {
     background: #044b3a;
 }
 
@@ -141,18 +141,19 @@ nav a {
     cursor: pointer;
     margin-top: 10px;
 }
-.hotel-info button:hover{
-     background: #044b3a;
+
+.hotel-info button:hover {
+    background: #044b3a;
 }
+
 .map {
     width: 20%;
     background: #fff;
     border-radius: 10px;
     padding: 20px;
 }
-.map img{
-   
-}
+
+.map img {}
 
 footer {
     text-align: center;
@@ -163,3 +164,73 @@ footer {
 }
 
 
+
+/* Mobiles (<= 768px) */
+@media (max-width: 768px) {
+  
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    nav {
+        display: none;
+    }
+
+
+    .search-box {
+        flex-direction: column;
+        padding: 8px;
+        background: none;
+        gap: 10px;
+    }
+
+    .search-box input,
+    .search-box button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /*          */
+    .content {
+        display: block;
+    }
+
+    .filter {
+        width: 81%;
+        padding: 7px;
+        border-radius: 10px;
+    }
+  .filter h3,h4{
+    text-align: center;
+  }
+  
+    .hotels {
+        display: flex;
+        /* max-width: 78vw; */
+        width: 95%;
+        height: 72vh;
+        flex-wrap: wrap;
+        overflow-x: hidden;
+        margin-top: 35px;
+    }
+
+
+    .hotel-card {
+        max-width: 83vw;
+        max-height: 54vh;
+    }
+
+    .hotel-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .map {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
